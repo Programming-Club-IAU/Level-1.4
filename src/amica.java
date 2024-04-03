@@ -10,14 +10,32 @@ public class amica {
         //list of variables
         int gradeo,prog,phys,math,chems;
 
+        System.out.print("Math: ");
+        math = ciao.nextInt();
 
+        System.out.print("Physics :");
+        phys = ciao.nextInt();
 
+        System.out.print("Chemistry :");
+        chems = ciao.nextInt();
 
+        System.out.print("programming: ");
+        prog = ciao.nextInt();
 
+        if(math<44 || phys<42 || chems<40 || prog<47){
+        System.out.print("Enter excuse of absence: ");
+        String excuse = ciao.nextLine();
+        int index = excuse.indexOf("hospital");
+        if(index!=-1){
+            math++;prog++;chems++;phys++;
+        }
+        
+        }
 
 
 
 
     }
 }
+
 
