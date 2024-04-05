@@ -135,6 +135,7 @@ public class App {
             System.out.println(subjects[i] + " Attendance: " + studentAttend[i] + " days");
         }
 
+        
         System.out.println("Grade: " + GPA + "\n");
         System.out.println("Result: " + result);
 
