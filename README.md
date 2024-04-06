@@ -19,7 +19,8 @@ The Student Class Contain Numerus of Mehods with Constructor and Many Data Field
 - progChecker(programming attendence) : Checks if the Programming Attendence Isn't Out of the Range (0 - 50).
 - gradeChecker(grade) : Checks if the Grade Isn't Out of the Range (0.0 - 5.0).
 - excChecker(excuse) : To Checks if the Student Entered an Excuse to Increase it Attendence or not.
-- nameChecker(name) : To Check if the Student Entered it Name proply and Didn't enter any Number or Characters in their Name.
+- nameChecker(name) : To Check if the Student Entered it Name proply and Didn't enter any Number or Characters in their Name by
+the ASCII.
 _________________________________________________________________________________________________________________________________
 # MAIN CLASS CONTENT AND FLOW CONTROL
 
@@ -30,3 +31,9 @@ by it method , and if the checking is done successfully with any issues it will 
 Once all the data are inmported it will display all the information and disply a message that the system has finally processed 
 everything. if there is any wrong input the system will stop the process ,and display an error message or an wrong input cuase it to 
 stop. 
+_________________________________________________________________________________________________________________________________
+# NOTES
+
+- all of the requirment are filfulled.
+- there isn't any ASCII characters are used to advance to the next level.
+- most of the error encounter are fixed and won't cause any problems to the program.
