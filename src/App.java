@@ -6,8 +6,9 @@ public class App {
         Scanner input=new Scanner(System.in);
         Student info = new Student();
         
+        try{
         //the friendly user interface with the inputs with checking every input with the proper cheacker and inporting every infomation to the class "Student"
-        System.out.print("==========================================\n Welcome to The Attendence and Grading System \n Enter The Student name: ");
+        System.out.print("=========================================================================\n Welcome to The Attendence and Grading System \n Enter The Student name: ");
         String name=input.nextLine();
         info.nameChecker(name);
         info.name=name;
@@ -32,6 +33,9 @@ public class App {
         info.progChecker(programming);
         info.AttProgramming=programming;
 
+        //for the buffuring issue, added a next new line input
+        input.nextLine();
+
         System.out.print("Mark attendance for each subject (enter excuse fo absence): ");
         String excusse=input.nextLine();
         info.excChecker(excusse);
@@ -45,6 +49,13 @@ public class App {
         //Checking if the Student pass or not and display it infomation
         info.pas(grade);
         info.display();
+
+        }catch(InputMismatchException e){
+            System.err.println("Error:\nWrong Inputs ,Try Again");
+        } finally{
+            System.out.println("=========================================================");
+            System.out.println("\tThe Student System Excecuted Successfully");
+        }
 
     }
 }

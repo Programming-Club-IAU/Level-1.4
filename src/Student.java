@@ -33,7 +33,7 @@ class Student {
 
     public void display(){
         System.out.println("\nStudent information:\nName: "+name+"\nMath Attendance: "+AttMath+" days\nPhysics Attendance: "+AttPhysics+" days\nChemistry Attendance: "+AttChemistry+" days\nProgramming Attendance: "+AttProgramming+" days\nGrade: "+grade);
-        System.out.println("\n\nThe Results: "+pas(grade));
+        System.out.println("\nThe Results: "+pas(grade));
     }
 
     public void mathChecker(int AttMath){
@@ -71,13 +71,15 @@ class Student {
         }
     }
 
-    public void excChecker(String excuse){
-        for (int i=0 ; i<=excuse.length() ; i++){
-            if(excuse.substring(i).equals("hospital")){
-                AttMath=AttMath+1;
-                AttPhysics=AttPhysics+1;
-                AttChemistry=AttChemistry+1;
-                AttProgramming=AttProgramming+1;
+    public void excChecker(String excuse) {
+        String[] words = excuse.split(" ");
+        for (String word : words) {
+            if (word.equals("hospital")) {
+                AttMath++;
+                AttPhysics++;
+                AttChemistry++;
+                AttProgramming++;
+                break;
             }
         }
     }
