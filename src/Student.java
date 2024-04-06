@@ -72,6 +72,24 @@ class Student {
     }
 
     public void excChecker(String excuse){
-        
+        for (int i=0 ; i<=excuse.length() ; i++){
+            if(excuse.substring(i).equals("hospital")){
+                AttMath=AttMath+1;
+                AttPhysics=AttPhysics+1;
+                AttChemistry=AttChemistry+1;
+                AttProgramming=AttProgramming+1;
+            }
+        }
+    }
+
+    public void nameChecker(String name){
+        for(int i=0 ; i<name.length() ; i++){
+            if(name.charAt(i)==32 || (name.charAt(i)>64 && name.charAt(i)<91) || (name.charAt(i)>96 && name.charAt(i)<123)){
+            }else {
+                System.err.println("The Name is Incorrect, Please Enter Again");
+                System.exit(0);
+            }   
+        }
+
     }
 }
