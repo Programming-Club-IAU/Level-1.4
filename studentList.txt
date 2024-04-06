@@ -1,0 +1,2 @@
+310	Super	Mario	50	50	50	50	5.0
+935	Edward	Richtofen	41	43	41	49	4.5
