@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class taskk4 {
+    
+    public static void main(String[] args) {
+        boolean w = false;
+        System.out.print("Enter student name --> ");
+        Scanner sc = new Scanner(System.in);
+        String name = sc.nextLine();
+        
+        System.out.println("Enter the attendance for each subject: ");
+        System.out.print("Math --> ");
+        int math = sc.nextInt();
+
+        System.out.print("Physics --> ");
+        int physics = sc.nextInt();
+
+        System.out.print("Chemistry --> ");
+        int chemistry = sc.nextInt();
+
+        System.out.print("Programming --> ");
+        int programming = sc.nextInt();
+
+        sc.nextLine(); // Consume newline character
+        
+        System.out.print("Mark attendance for each subject (Enter excuse of absence)--> ");
+        String excuse = sc.nextLine();
+
+        System.out.print("Enter grade for the semester (out of 5)--> ");
+        float grade = sc.nextFloat();
+
+        String[] words = excuse.split(" ");
+        
+        for (String word : words) {
+            if (word.equalsIgnoreCase("hospital")) {
+                w = true;
+                System.out.println("_________________________________");
+                System.out.println("Student Information:");
+                System.out.println("Name: " + name);
+                System.out.println("Math Attendance: " + (math + 1) + " days");
+                System.out.println("Physics Attendance: " + (physics + 1) + " days");
+                System.out.println("Chemistry Attendance: " + (chemistry + 1) + " days");
+                System.out.println("Programming Attendance: " + (programming + 1) + " days");
+                System.out.println("Grade{ " + grade+" }");
+                break;
+            }
+        }
+        if (w==false) {
+            System.out.println("_________________________________");
+            System.out.println("Student Information:");
+            System.out.println("Name: " + name);
+            System.out.println("Math Attendance: " + math + " days");
+            System.out.println("Physics Attendance: " + physics + " days");
+            System.out.println("Chemistry Attendance: " + chemistry + " days");
+            System.out.println("Programming Attendance: " + programming + " days");
+            System.out.println("Grade{ " + grade+" }");
+        }
+        
+        if (math >= 44 && physics >= 42 && chemistry >= 40 && programming >= 47)
+            System.out.println("Congratulations, you are successful :)");
+        else
+            System.out.println("Unfortunately, you failed :(");
+            System.out.println("_________________________________");
+
+    }
+}
