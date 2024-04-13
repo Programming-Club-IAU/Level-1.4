@@ -1,0 +1,7 @@
+Student information:
+Student name: Faris Almutairi
+Math: 45 days
+Physics: 48 days
+Chemistry: 49 days
+Programming: 50 days
+Grade: 4.0
