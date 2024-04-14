@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Bonus10",
+            "request": "launch",
+            "mainClass": "Bonus10",
+            "projectName": "Level-1.4_6bb2f5dc"
+        },
+        {
+            "type": "java",
             "name": "Bonus",
             "request": "launch",
             "mainClass": "Bonus",
