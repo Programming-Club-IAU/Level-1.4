@@ -7,7 +7,7 @@ public class Bonus {
         BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\h4yat\\OneDrive - IMAM ABDULRAHMAN BIN FAISAL UNIVERSITY\\Desktop\\Level-1.4\\Level-1.4\\infoFile.txt"));
         Scanner ciao = new Scanner(System.in);
         String line, name="";
-        System.out.println("Welcome to the Attendance and Grade System!\nthis is the bonus part of the task\n every detail will be taken from the txt file. \nEnjoy!") ;
+        System.out.println("Welcome to the Attendance and Grade System!\nThis is the bonus part of the task\nEvery detail will be taken from the txt file. \nEnjoy!") ;
         System.out.print("Student's Name: ");
         while ((line = reader.readLine()) != null) {
             if (line.startsWith("Name: ")) {
@@ -59,8 +59,14 @@ public class Bonus {
         }
         if (math < 44 || phys < 42 || chems < 40 || prog < 47) {
             System.out.print("Enter excuse of absence: ");
-            String forSpace = ciao.nextLine();
-            String excuse = ciao.nextLine();
+            String excuse="";
+            while ((line = reader.readLine()) != null) {
+                if (line.startsWith("Excuses: ")) {
+                    excuse = String.valueOf(line.substring(6).trim());
+                    System.out.println(excuse);
+                    break;
+                }
+            }
             int index = excuse.indexOf("hospital");
             if (index != -1) {
                 math++;prog++;chems++;phys++;
@@ -80,13 +86,14 @@ public class Bonus {
                 System.out.println(gpa);
                 break;
             }
-        }
-        System.out.println("Student information:\nName"+name+
+        }/////Nice!!
+        System.out.println("    ---------------------\n \\\\|Student info. updated|//\n    ---------------------\n" + //
+                        "\nName: "+name+
                            "\nMath Attendance: "+math+" days\n" +
                            "Physics Attendance: "+phys+" days\n" + 
                            "Chemistry Attendance: "+chems+" days\n" + 
                            "Programming Attendance: "+prog+" days\n" + 
-                           "Grade: "+gpa);
+                           "Grade: "+gpa+" out of 5");
         if(Success){
             System.out.println("Result: Congrats! you've success");
         }

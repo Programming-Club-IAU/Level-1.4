@@ -1,2 +1,2 @@
-x='Name: '
+x='Excuses: '
 print(len(x))
