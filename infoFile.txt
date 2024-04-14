@@ -1,3 +1,6 @@
+You can change the wanted student by putting their info above the others
+or change the details fot the first student
+
 Student 1:
 Name: Manea Yahya
 Math Attendance: 48
@@ -7,3 +10,20 @@ Programming Attendance: 45
 GPA: 4.12
 Excuses: Had a family emergency and went to hospital
 
+Student 2:
+Name: Sarah Johnson
+Math Attendance: 60
+Physics Attendance: 60
+Chemistry Attendance: 59
+Programming Attendance: 60
+Excuses: Recovering from surgery
+GPA: 4.82
+
+Student 3:
+Name: Michael Lee
+Math Attendance: 56
+Physics Attendance: 58
+Chemistry Attendance: 54
+Programming Attendance: 59
+Excuses: Participating in a national coding competition
+GPA: 4.65
