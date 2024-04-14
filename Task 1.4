@@ -25,7 +25,7 @@ public class HelloWorld {
         System.out.print("Enter grade for the semester (out of 5): ");
         double grade = Double.parseDouble(sc.nextLine()); 
 
-        if(grade > 3.5){
+        if(grade > 3.5 && attendance[0] > 43 && attendance[1]> 41 && attendance[2]>39 && attendance[3]>46 ){
              result = "Succeed";
         }
         if(grade > 5 || grade<0){
