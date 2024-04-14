@@ -1,0 +1,53 @@
+package taskForCulp;
+import java.util.Scanner;
+/**
+ *
+ * @author SHOUG
+ */
+
+public class AttendanceTrackingTask4 {
+public static void main(String[] args) {
+    Scanner input=new Scanner(System.in);
+    System.out.print("Enter student name: " );
+    String name=input.next();
+System.out.print("Enter the attendance for each subject: \n Math: " );
+boolean FLAGm=false,FLAGph=false,FLAGp=false,FLAGch=false;
+int Gm=input.nextInt();
+System.out.print("Physics: ");
+int Gph=input.nextInt();
+System.out.print("Chemistry: " );
+int Gch=input.nextInt();
+System.out.print("Programming: " );
+int Gp=input.nextInt();
+System.out.print("Mark attendance for each subject (Enter excuse of absence):  " );
+String strAbsence=input.next();
+if(strAbsence.contains("hospital")){
+    Gm++;Gph++;Gch++;Gp++; 
+}
+System.out.print("Enter grade for the semester (out of 5):" );
+double GRADEtotal=input.nextDouble();
+
+if(Gm>43){
+    FLAGm=true;
+}
+if(Gph>41){
+    FLAGph=true;
+}
+if(Gch>39){
+    FLAGch=true;
+}
+if(Gp>46){
+    FLAGp=true;
+}
+System.out.println("\n Student information: \n "+ "Nama: " +name+"\n Math Attendance: "+Gm+" Days\n Physics Attendance: "+Gph+
+        " Days\n Chemistry Attendance: "+Gch+
+        " Days\n Programming Attendance: "+Gp+ " Days\n Grade:"+ GRADEtotal);
+
+if(FLAGm&&FLAGph&&FLAGch&&FLAGp&&GRADEtotal>3.5){
+    System.out.println("Result: Success");
+}else{
+   System.out.println("Result: Failure"); 
+}
+
+}
+}
