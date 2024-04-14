@@ -34,6 +34,12 @@ public class Bonus10 {
                 break;
             }
         }
+        System.out.println("The attendance for each subject:");
+        System.out.println("Math: " + math);
+        System.out.println("Physics: " + phys);
+        System.out.println("Chemistry: " + chems);
+        System.out.println("Programming: " + prog);
+        System.out.println("Students' GPA: " + gpa);
         while(need){
                 line = reader.readLine(); // read a new line
                 if (math < 44 || phys < 42 || chems < 40 || prog < 47) {
@@ -55,13 +61,7 @@ public class Bonus10 {
                 }
                 need=false;
             }
-        System.out.println("The attendance for each subject:");
-        System.out.println("Math: " + math);
-        System.out.println("Physics: " + phys);
-        System.out.println("Chemistry: " + chems);
-        System.out.println("Programming: " + prog);
-        System.out.println("Students' GPA: " + gpa);
-        System.out.println("\n    ---------------------\n \\\\|Student info. updated|//\n    ---------------------\n" + //
+            System.out.println("\n    ---------------------\n \\\\|Student info. updated|//\n    ---------------------\n" + //
                         "\nName: "+name+
                            "\nMath Attendance: "+math+" days\n" +
                            "Physics Attendance: "+phys+" days\n" + 
@@ -69,10 +69,10 @@ public class Bonus10 {
                            "Programming Attendance: "+prog+" days\n" + 
                            "Grade: "+gpa+" out of 5");
         if(Success){
-            System.out.println("Result: Congrats! you've success");
+            System.out.println("Result: Congrats! you've success >_<");
         }
         else{
-            System.out.println("Result: Oops. you failed");
+            System.out.println("Result: Oops. you failed :'(");
         }
     }
 }
