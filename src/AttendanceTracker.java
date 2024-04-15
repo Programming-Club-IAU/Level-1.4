@@ -19,8 +19,7 @@ public class AttendanceTracker {
             for (Subject subject : student.getSubjects()) {
                 subject.markAttendance(1); // Increase one absence for each subject
             }
-        } 
-        else {
+        } else {
             for (Subject subject : student.getSubjects()) {
                 System.out.print(subject.getName() + ": ");
                 int days = scanner.nextInt();
@@ -41,10 +40,9 @@ public class AttendanceTracker {
         double totalGrade = student.getGrade();
         if (passed && totalGrade >= 3.5) {
             return "Success";
-        } else if (totalGrade < 3.5) {
-            return "Failure: Grade below 3.5";
-        } else {
-            return "Failure: Attendance requirement not met";
+        }
+         else {
+            return "Fail";
         }
     }
 }
