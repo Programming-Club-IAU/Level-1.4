@@ -1,0 +1,35 @@
+John Doe
+Math: 43
+Physics: 41
+Chemistry: 39
+Programming: 46
+Grade: 4.2
+
+Jane Smith
+Math: 45
+Physics: 40
+Chemistry: 38
+Programming: 48
+Grade: 4.0
+
+Ali Sam
+Math: 43
+Physics: 44
+Chemistry: 45
+Programming: 39
+Grade: 3.9
+
+Mark Doe
+Math: 39
+Physics: 45
+Chemistry: 44
+Programming: 41
+Grade: 3.8
+
+Sam Sam
+Math: 29
+Physics: 32
+Chemistry: 35
+Programming: 39
+Grade: 3.4
+
