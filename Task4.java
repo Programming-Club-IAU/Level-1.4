@@ -17,7 +17,7 @@ import java.util.Scanner;
                     this.prog = prog;
                     this.gpa = gpa;
                     this.excuse = excuse;
-                    HospitalAttend();
+                  
             }
 
 
@@ -77,15 +77,17 @@ public class Test {
 
 
         System.out.println("Student information :");
-
-        System.out.println("Student Name: " + name);
-        System.out.println("Math Attendance: " + math);
-        System.out.println("Physics Attendance: " + phys);
-        System.out.println("Chemistry Attendance: " + chem);
-        System.out.println("Programming Attendance: " + prog);
-        System.out.println("GPA: " + gpa);
         Student student  = new Student(name, math, phys, chem, prog, gpa, excuse);
+        student.HospitalAttend();
+
+        System.out.println("Student Name: " + student.name);
+        System.out.println("Math Attendance: " + student.math);
+        System.out.println("Physics Attendance: " + student.phys);
+        System.out.println("Chemistry Attendance: " + student.chem);
+        System.out.println("Programming Attendance: " + student.prog);
+        System.out.println("GPA: " + gpa);
         String status = student.success() ? "Successful" : "Failure";
+ 
         System.out.println("Success Status: " + status);
 
 
@@ -95,3 +97,6 @@ public class Test {
 
     }
 }
+
+
+   
