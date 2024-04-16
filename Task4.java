@@ -22,7 +22,7 @@ import java.util.Scanner;
 
             public boolean success(){
                 return math >= 44 && phys >= 42 && chem >= 40 &&
-               prog>= 47 && gpa >= 3.5;
+               prog>= 47 && gpa > 3.5;
 
             }
 
