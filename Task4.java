@@ -17,28 +17,29 @@ import java.util.Scanner;
                     this.prog = prog;
                     this.gpa = gpa;
                     this.excuse = excuse;
+                    HospitalAttend();
             }
 
 
             public boolean success(){
                 return math >= 44 && phys >= 42 && chem >= 40 &&
-               prog>= 47 && gpa > 3.5;
+               prog>= 47 && gpa >= 3.5;
 
             }
 
 
-            private void HospitalAttend(){
-                 if (excuse.toLowerCase().contains("hospital")) {
-            math+= 1;
-            phys += 1;
-            chem += 1;
-            prog += 1;
+            public void HospitalAttend(){
+                 if (this.excuse.toLowerCase().contains("hospital")) {
+            this.math += 1;
+            this.phys += 1;
+            this.chem += 1;
+            this.prog += 1;
         }
             }
 
         }
 
-public class Task4 {
+public class Test {
     public static void main(String[] args) {
 
 
@@ -71,7 +72,7 @@ public class Task4 {
         scanner.nextLine();  
 
         System.out.println("Enter any excuse message:");
-        String excuseMessage = scanner.nextLine();
+        String excuse = scanner.nextLine();
 
 
 
@@ -83,7 +84,7 @@ public class Task4 {
         System.out.println("Chemistry Attendance: " + chem);
         System.out.println("Programming Attendance: " + prog);
         System.out.println("GPA: " + gpa);
-        Student student  = new Student(name, math, phys, chem, prog, gpa, excuseMessage);
+        Student student  = new Student(name, math, phys, chem, prog, gpa, excuse);
         String status = student.success() ? "Successful" : "Failure";
         System.out.println("Success Status: " + status);
 
