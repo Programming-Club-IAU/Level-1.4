@@ -1,6 +1,4 @@
-You can change the wanted student by putting their info above the others
-or change the details fot the first student
-
+You can change the wanted student by changing the details
 Student 1:
 Name: Manea Yahya
 Math Attendance: 48
