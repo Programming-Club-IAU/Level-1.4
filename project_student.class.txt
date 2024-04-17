@@ -1,0 +1,237 @@
+package project_student;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class Student {
+    private String name;
+    private int mathAttendance;
+    private int physicsAttendance;
+    private int chemistryAttendance;
+    private int programmingAttendance;
+    private double grade;
+
+    public Student(String name) {
+        this.name = name;
+        this.mathAttendance = 0;
+        this.physicsAttendance = 0;
+        this.chemistryAttendance = 0;
+        this.programmingAttendance = 0;
+        this.grade = 0.0;
+    }
+    
+    public String getName(){
+    return name;
+    }
+    
+    public void setAttendance(String subject, int attendance) {
+        switch (subject) {
+            case "math":
+                mathAttendance = attendance;
+                break;
+            case "physics":
+                physicsAttendance = attendance;
+                break;
+            case "chemistry":
+                chemistryAttendance = attendance;
+                break;
+            case "programming":
+                programmingAttendance = attendance;
+                break;
+        }
+    }
+
+    public void setGrade(double grade) {
+        this.grade = grade;
+    }
+
+    public boolean isPassing() {
+        int minAttendance = 50 - (subjectContainsHospitalExcuse() ? 1 : 0);
+        return (mathAttendance >= minAttendance && physicsAttendance >= minAttendance &&
+                chemistryAttendance >= minAttendance && programmingAttendance >= minAttendance) &&
+                grade >= 3.5;
+    }
+
+    private boolean subjectContainsHospitalExcuse() {
+        return name.toLowerCase().contains("hospital");
+    }
+
+    public void printStudentInfo() {
+        System.out.println("Student Information:");
+        System.out.println("Name: " + name);
+        System.out.println("Math Attendance: " + mathAttendance + " days");
+        System.out.println("Physics Attendance: " + physicsAttendance + " days");
+        System.out.println("Chemistry Attendance: " + chemistryAttendance + " days");
+        System.out.println("Programming Attendance: " + programmingAttendance + " days");
+        System.out.println("Grade: " + grade);
+        System.out.println("\nResult: " + (isPassing()? "Success" : "Failure"));
+    }
+
+    public String toFileString() {
+        return name + "," +
+                mathAttendance + "," +
+                physicsAttendance + "," +
+                chemistryAttendance + "," +
+                programmingAttendance + "," +
+                grade;
+    }
+
+    public static Student fromFileString(String fileString) {
+        String[] parts = fileString.split(",");
+        String name = parts[0];
+        int mathAttendance = Integer.parseInt(parts[1]);
+        int physicsAttendance = Integer.parseInt(parts[2]);
+        int chemistryAttendance = Integer.parseInt(parts[3]);
+        int programmingAttendance = Integer.parseInt(parts[4]);
+        double grade = Double.parseDouble(parts[5]);
+
+        Student student = new Student(name);
+        student.setAttendance("math", mathAttendance);
+        student.setAttendance("physics", physicsAttendance);
+        student.setAttendance("chemistry", chemistryAttendance);
+        student.setAttendance("programming", programmingAttendance);
+        student.setGrade(grade);
+
+        return student;
+    }
+}
+
+public class Project_student {
+    private static final String FILE_NAME = "student_data.txt";
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        List<Student> students = new ArrayList<>();
+
+        
+        loadStudentsFromFile(students);
+
+        boolean exitProgram = false;
+
+        while (!exitProgram) {
+            System.out.println("1. Enter student data");
+            System.out.println("2. Search student by name");
+            System.out.println("3. Exit");
+
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline character
+
+            switch (choice) {
+                case 1:
+                    enterStudentData(scanner, students);
+                    break;
+                case 2:
+                    searchStudentByName(scanner, students);
+                    break;
+                case 3:
+                    exitProgram = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+                    break;
+            }
+        }
+
+        
+        //saveStudentsToFile(students);
+    }
+
+    private static void enterStudentData(Scanner scanner, List<Student> students) {
+        System.out.print("Enter student name: ");
+        String name = scanner.nextLine();
+
+        Student student = new Student(name);
+
+        System.out.println("Enter the attendance for each subject:");
+        System.out.print("Math: ");
+        int mathAttendance = scanner.nextInt();
+        scanner.nextLine(); 
+
+        System.out.print("Physics: ");
+        int physicsAttendance = scanner.nextInt();
+        scanner.nextLine(); 
+
+        System.out.print("Chemistry: ");
+        int chemistryAttendance = scanner.nextInt();
+        scanner.nextLine(); 
+
+        System.out.print("Programming: ");
+        int programmingAttendance = scanner.nextInt();
+        scanner.nextLine(); 
+
+        student.setAttendance("math", mathAttendance);
+        student.setAttendance("physics", physicsAttendance);
+        student.setAttendance("chemistry", chemistryAttendance);
+        student.setAttendance("programming", programmingAttendance);
+
+        System.out.print("Mark attendance for each subject (Enter excuse of absence): ");
+        String excuse = scanner.nextLine();
+
+        if (excuse.toLowerCase().contains("hospital")) {
+            student.setAttendance("math", mathAttendance + 1);
+            student.setAttendance("physics", physicsAttendance + 1);
+            student.setAttendance("chemistry", chemistryAttendance + 1);
+            student.setAttendance("programming", programmingAttendance + 1);
+        }
+
+        System.out.print("Enter grade for the semester (out of 5): ");
+        double grade = scanner.nextDouble();
+
+        student.setGrade(grade);
+
+        students.add(student);
+        
+        saveStudentsToFile(students);
+
+        System.out.println("Student data entered successfully.");
+    }
+
+    private static void searchStudentByName(Scanner scanner, List<Student> students) {
+        System.out.print("Enter student name: ");
+        String name = scanner.nextLine();
+
+        boolean found = false;
+
+        for (Student student : students) {
+            if (student.getName().equalsIgnoreCase(name)) {
+                student.printStudentInfo();
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Student not found.");
+        }
+    }
+
+    private static void loadStudentsFromFile(List<Student> students) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                Student student = Student.fromFileString(line);
+                students.add(student);
+            }
+        } catch (IOException e) {
+            // Handle file read error
+            System.out.println("Failed to load student data from file.");
+        }
+    }
+
+    private static void saveStudentsToFile(List<Student> students) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
+            for (Student student : students) {
+                String fileString = student.toFileString();
+                writer.write(fileString);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            // Handle file write error
+            System.out.println("Failed to save student data to file.");
+        }
+    }
+}
